@@ -1,0 +1,63 @@
+https://joshua1988.github.io/webpack-guide/guide.html 참조 
+NPM - Node package manager
+
+-. 전세계 Javascript Library 있는 공개 저장소.(ex. jquery, tensorflow, 머신러닝, iot 등등)
+
+node -v // node 버전확인
+npm -v // npm 버전확인
+npm init -y  // npm 초기화 package.json 생성
+npm install jquery // npm install jquery --save-prod 와 동일 명령어 임. default --save-prod 생략했음.
+                   // node_module 에 jquery libary 설치 통상 jquery > dist 하위에 jquery.js 참조하면 됨.
+npm install gulp //잘못설치
+npm uninstall gulp //삭제
+
+npm install gulp --global // 전역설치 (시스템 레벨에 사용할 자바라이브러리 설치) 
+                          //windows 기준 C:\Users\USER\AppData\Roaming\npm\node_modules 에 설치
+
+지역설치 2가지 옵션 
+-. 기본 --save-prod
+-. --save-dev
+
+npm install vue --save-dev // npm i vue -D 와 동일 한 명령어 임.
+
+dependencies // npm i 했을때 package.jsnon에 생김
+devDependencies // npm i xxx -save-dev 또는 npm i xxx -D 했을때 package.jsno생김.
+
+dependencies는 application 의 로직을 구현하는데 연관이 있다. 화면의 로직과 직접적인 연관이 있는 로직, jquery, reace, angular, chart 등
+
+devDependencies // webpack, js-compression, sass 등 개발을 할때 도움을 주는, 개발 보조 라이브러리
+                // build 시 배포 되지 않는다.
+dependencies 와 devDependencies 의 구분은 npm 공식 사이트(https://www.npmjs.com/) 에 package installtion 을 참조 하면 된다.
+예를 들어 express 는 npm install express 이것으로 가이드 되어 있다.
+
+웹팩강의
+1. 폴더생성 : getting-started
+2. 터미널 열기 : npm init -y 실행
+3. webpack, webpack-cli 설치 : npm i webpack webpack-cli -D
+4. lodash 설치 : npm i lodash  //Javascript utility library
+
+package.json 에 scripts 부분은 커스텀 명령어를 실행 할수 있는 부분이다.
+scripts 부분에 추가 "build": "webpack"
+
+5. 실행 : npm run build
+
+webpack 을 실행하며 webpack.config.js 을 가지고 와서 실행함.
+
+바벨 : https://babeljs.io/
+바벨이 라고 하는 것은 javascript 의 최신문법들을 최대한 많은 브라우져가 호환 할 수 있게끔 변환해 주는 도구라고 보면 된다.
+ES2015 : 2015년 부터 javascript 의 거대한 문법변화가 있었는데. 그것을 ES6 라고 부르고, 그후 나온것을 ES6+ 라고 보면 된다.
+
+실습 참조. https://joshua1988.github.io/webpack-guide/tutorials/code-splitting.html#%EC%8B%A4%EC%8A%B5-%EC%A0%88%EC%B0%A8
+1. npm init -y // 이 프로젝트는 npm 기반프로젝트는 이 폴더는 웹서비스 프로젝트를 진행 하는데, npm 기반으로 할것이다 라고 정의 하는것.
+2. 실습에 필요한 라이브러리 설치 : npm i webpack webpack-cli css-loader style-loader mini-css-extract-plugin -D
+
+webpack.config.js 의 loader 은 오른쪽에서 왼쪽 순서로 적용 된다.
+예를 들어 use: [ 'style-loader', 'css-loader'] 는 css-loader로 css를 webpack 안으로 들어오게 하고,  그다음 style-loader 로 html 파일에 inline style 로 박아준다.
+<head>
+    <meta charset="utf-8">
+    <title>CSS &amp; Libraries Code Splitting</title>
+    <style>p { color: blue; }</style>
+ </head>
+ 
+플러그인(plugin)은 웹팩의 기본적인 동작에 추가적인 기능을 제공하는 속성입니다. 
+로더랑 비교하면 로더는 파일을 해석하고 변환하는 과정에 관여하는 반면, 플러그인은 해당 결과물의 형태를 바꾸는 역할을 한다고 보면 됩니다.

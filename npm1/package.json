@@ -9,12 +9,23 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+
+  npm i jquery jquery-ui
   "dependencies": {
-    "jquery": "^3.6.0",
-    "jquery-ui": "^1.13.1",
-    "vue": "^3.2.33"
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
+    "react": ,
+    "angular": ,
+    "chart": ,
+    "vue": "^2.6.11",
   },
+  npm i vue -D
+  npm i vue --save-dev
   "devDependencies": {
     
+    "webpack": "",
+    "js-compression": "",
+    "sass": "",
+
   }
 }
