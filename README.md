@@ -17,6 +17,24 @@
 - 실습 환경 보조 : [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - 기타 : [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager), [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag), [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens), [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings), [Jetbrains IDE Keymap](https://marketplace.visualstudio.com/items?itemName=isudox.vscode-jetbrains-keybindings) 등
 
+## NPM
+- [Node.js 다운로드사이트](https://nodejs.org/ko/) : LTS 버전 다운로드 권장(Long Term Support:장기지원버젼)
+- [NPM 공식 사이트](https://www.npmjs.com/)
+- Node Package Manager, 자바스크립트 라이브러리를 관리해 주는 도구
+- 전세계 Javascript Library 있는 공개 저장소.(ex. jquery, tensorflow, 머신러닝, exporess, iot 등등)
+	```
+	node -v // node 버전확인
+	npm -v // npm 버전확인
+	npm init -y  // npm 초기화 package.json 생성
+	npm install jquery // npm install jquery --save-prod 와 동일 명령어 임. default --save-prod 생략했음.
+					// node_module 에 jquery libary 설치 통상 jquery > dist 하위에 jquery.js 참조하면 됨.
+	npm install gulp //잘못설치
+	npm uninstall gulp //삭제
+
+	npm install gulp --global // 전역설치 (시스템 레벨에 사용할 자바라이브러리 설치) 
+							//windows 기준 C:\Users\USER\AppData\Roaming\npm\node_modules 에 설치
+	```
+
 ## 참조사이트
 [웹팩 핸드북](https://joshua1988.github.io/webpack-guide/guide.html)
 [강의 리포지토리 주소](https://github.com/joshua1988/LearnWebpack)

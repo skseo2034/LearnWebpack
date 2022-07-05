@@ -1,20 +1,26 @@
-{
+ {
   "name": "npm",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "csstype": "^2.6.20",
+    "estree-walker": "^2.0.2",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.13.1",
+    "magic-string": "^0.25.9",
+    "nanoid": "^3.3.3",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.12",
+    "source-map": "^0.6.1",
+    "source-map-js": "^1.0.2",
+    "sourcemap-codec": "^1.4.8",
+    "vue": "^3.2.33"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "jquery": "^3.6.0",
-    "jquery-ui": "^1.13.1",
-    "vue": "^3.2.33"
-  },
-  "devDependencies": {
-    
-  }
+  "license": "ISC"
 }
