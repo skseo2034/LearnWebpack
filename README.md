@@ -31,9 +31,33 @@
 	npm install gulp //잘못설치
 	npm uninstall gulp //삭제
 
-	npm install gulp --global // 전역설치 (시스템 레벨에 사용할 자바라이브러리 설치) 
+	npm install gulp --global // 전역설치 (시스템 레벨에 사용할 자바스크립트 라이브러리 설치) 
 							//windows 기준 C:\Users\USER\AppData\Roaming\npm\node_modules 에 설치
 	```
+## NPM 설치
+- 전역 설치
+	- 시스템 레벨에서 사용할 Javascript 라이브러리 전역으로 설치
+	- `npm install gulp --global` 또는 `npm install gulp --g` 로 설치
+	- 설치경로 
+		- Windows : C:\Users\USER\AppData\Roaming\npm\node_modules
+		- Mac : /usr/local/lib/node_modules
+- 지역 설치
+	- 설치경로 : 해당 프로젝트의 node_modules 폴더가 생성되고, 그 폴더 아래에 설치 됨.
+	- 설치옵션
+		- `npm install vue --save-dev` 또는 `npm install vue -D` 또는 `npm i vue -D`
+			- package.json 에 devDependencies 에 들어 감.
+		- `npm install jquery --save-prod` 또는 `npm i jquery`
+			-  package.json 에 dependencies 에 들어 감.
+		- dependencies 와 devDependencies 를 구분해서 설치 하는 이유
+			- dependencies는 application 의 로직을 구현하는데 연관이 있다.
+				- 화면의 로직과 직접적인 연관이 있는 로직, jquery, reace, angular, chart 등
+			- devDependencies 는 개발용 보조 라이브러리 들.
+				- webpack, js-compression, sass 등 개발을 할때 도움을 주는 개발용 보조 라이브러리
+                - build 시 배포 되지 않는다.
+	- 개발용 라이브러리(devDependencies) 와 배포용 라이브러리(dependencies) 구분하기
+		- npm 공식 사이트(https://www.npmjs.com/) 에 package installtion 을 참조 하면 된다.
+			- 예를 들어 express 는 npm install express 이것으로 가이드 되어 있다.
+			 	
 
 ## 참조사이트
 [웹팩 핸드북](https://joshua1988.github.io/webpack-guide/guide.html)

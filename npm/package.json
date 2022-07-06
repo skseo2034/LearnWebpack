@@ -1,4 +1,4 @@
- {
+{
   "name": "npm",
   "version": "1.0.0",
   "description": "",
@@ -14,13 +14,15 @@
     "postcss": "^8.4.12",
     "source-map": "^0.6.1",
     "source-map-js": "^1.0.2",
-    "sourcemap-codec": "^1.4.8",
-    "vue": "^3.2.33"
+    "sourcemap-codec": "^1.4.8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vue": "^3.2.37"
+  }
 }
