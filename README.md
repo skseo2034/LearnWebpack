@@ -58,6 +58,29 @@
 		- npm 공식 사이트(https://www.npmjs.com/) 에 package installtion 을 참조 하면 된다.
 			- 예를 들어 express 는 npm install express 이것으로 가이드 되어 있다.
 			 	
+## 웹팩
+- 웹팩이란?
+	- 최신 프론트엔드 프레임워크에서 가장 많이 사용되는 모듈번들러(Module Bundler) 이다.
+		- 모듈 번들러란?
+			웹 애플리케이션을 구성하는 자원(HTML, CSS, Javascript, Image 등)을 모두 각각의 모듈로 보고 이를 조합해서 병합된 하나의 결과물을 만드는 도구를 의미한다.
+		- 모듈 번들링이란?
+			- 아래 그림과 같이 웹 애플리케이션을 구성하는 몇십, 몇백개의 자원들을 하나의 파일로 병합 및 압축 해 주는 동작을 모듈 번들링이라고 한다.	
+		![alt text][Module Bundler] 
+
+[Module Bundler]: https://joshua1988.github.io/webpack-guide/assets/img/webpack-bundling.e79747a1.png "모듈 번들링 모형도"
+
+- 웹팩실습.
+	- [따라하기](https://joshua1988.github.io/webpack-guide/getting-started.html)
+	- LearnWebpack > getting-started 폴더생성
+	- getting-started 에서 통합터미널 오픈
+		- npm init -y
+			- 이 프로젝트는 이제 npm 을 이용해서 관리 하겠다.
+			- 대부분의 웹팩 프로젝트는 같이 npm 이 동반 된다. 따라서 package.json 설정하고, 웹팩 라이브러리들을 설치 해 나간다.
+		- npm i webpack webpack-cli -D	
+		- npm i lodash
+	- index.html 생성
+	- src 폴더 생성 > index.js 생성	
+
 
 ## 참조사이트
 [웹팩 핸드북](https://joshua1988.github.io/webpack-guide/guide.html)
