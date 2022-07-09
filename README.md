@@ -79,7 +79,22 @@
 		- npm i webpack webpack-cli -D	
 		- npm i lodash
 	- index.html 생성
-	- src 폴더 생성 > index.js 생성	
+	- src 폴더 생성 > index.js
+		- lodash import 코드 추가
+	- index.html 수정
+	- package.json 에 `"build": "webpack --mode=none"` 추가
+	- npm run build 실행
+		- dist > main.js 생성 됨 확인.
+	- build 시 package.json 에 webpack ---mode=none  을 줬다. 이렇게 할때마다 많은 옵션을 붙여주는 것 보다 webpack 설정파일을 이용하는게 낫다.
+	- webpack 설정파일
+		- 프로젝트 폴더 밑에 webpack.config.js 를 만든다.
+		- node.js 의 모듈문법을 사용한다.
+			- 예) `var path  = require('path')`
+			- node path 라이브러 살펴보기 
+				- 구글 검색 : node path
+				- [Node.js Path API 문서](https://nodejs.org/api/path.html)
+	- webpack 를 사용하면 실제로 request 의 횟수를 줄일수 있다.
+		- 개발자도구에서 확인 가능.			
 
 
 ## 참조사이트
