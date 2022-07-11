@@ -100,6 +100,9 @@
 ## 참조사이트
 [웹팩 핸드북](https://joshua1988.github.io/webpack-guide/guide.html)
 [강의 리포지토리 주소](https://github.com/joshua1988/LearnWebpack)
+[바벨 공식사이트](https://babeljs.io/)
+[Vue.js 개발자를 위한 ES6 입문서](https://joshua1988.github.io/es6-online-book/guide.html)
+[ES6 Modules 문법 소개 글](https://joshua1988.github.io/es6-online-book/modules.html)
 ## License & Copyright
 
 **MIT License** <br>
