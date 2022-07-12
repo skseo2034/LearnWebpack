@@ -94,7 +94,214 @@
 				- 구글 검색 : node path
 				- [Node.js Path API 문서](https://nodejs.org/api/path.html)
 	- webpack 를 사용하면 실제로 request 의 횟수를 줄일수 있다.
-		- 개발자도구에서 확인 가능.			
+		- 개발자도구에서 확인 가능.	
+
+- 웹팩의 주요 속성
+	- [웹팩의 4가지 주요 속성](https://joshua1988.github.io/webpack-guide/concepts/overview.html)
+	- [웹팩 Mode](https://webpack.kr/configuration/mode/)
+	- mode, entry, output, module, loader, plugin
+		- mode : webpack에 내장된 최적화 기능을 사용할 수 있다.
+			- default : production
+			- none : 기본 최적화 옵션에서 제외
+		- entry : 웹팩에서 웹 자원을 변환하기 위해 필요한 최초 진입점이자 자바스크립트 파일 경로
+		```
+		// 싱글유형
+		// webpack.config.js
+		entry: './src/index.js'
+		
+		// 멀티유형
+		 entry: {
+			home: ['./home.js', './home.scss'],
+			account: ['./account.js', './account.scss'],
+		}
+		```
+		- output : 	웹팩을 돌리고 난 결과물의 파일 경로를 의미합니다.
+			- default 경로 : ./dist
+		```
+		output: {
+			filename: 'bundle.js'
+		}
+
+		// output 속성 옵션 형태
+		// webpack.config.js
+		var path = require('path');
+
+		module.exports = {
+			output: {
+				filename: 'bundle.js',
+				path: path.resolve(__dirname, './dist')
+			}
+		}
+
+		// Output 파일 이름 옵션
+			// 결과 파일 이름에 entry 속성을 포함하는 옵션
+			module.exports = {
+				entry: {
+					home: ['./home.js', './home.scss'],
+					account: ['./account.js', './account.scss'],
+				},
+				output: {
+					filename: '[name].js',
+				}
+			}
+			// 결과 파일 이름에 웹팩 내부적으로 사용하는 모듈 ID를 포함하는 옵션
+			module.exports = {
+				output: {
+					filename: '[id].bundle.js'
+				}
+			}
+			// 매 빌드시 마다 고유 해시 값을 붙이는 옵션
+			module.exports = {
+				output: {
+					filename: '[name].[hash].bundle.js'
+				}
+			};
+			// 웹팩의 각 모듈 내용을 기준으로 생생된 해시 값을 붙이는 옵션
+			module.exports = {
+				output: {
+					filename: '[chunkhash].bundle.js'
+				}
+			};
+		```	
+		- Loader : 웹팩이 웹 애플리케이션을 해석할 때 자바스크립트 파일이 아닌 웹 자원(HTML, CSS, Images, 폰트 등)들을 변환할 수 있도록 도와주는 속성.
+			- 엔트리나 아웃풋 속성과는 다르게 module라는 이름을 사용한다.
+			```
+			// webpack.config.js
+			module.exports = {
+				module: {
+					rules: []
+				}
+			}
+			```
+			- Loader가 필요한 이유
+			```
+			웹팩으로 애플리케이션을 빌드할 때 만약 아래와 같은 코드가 있다고 해보겠습니다.
+
+			// app.js
+			import './common.css';
+
+			console.log('css loaded');
+			/* common.css */
+			p {
+			color: blue;
+			}
+			// webpack.config.js
+			module.exports = {
+			entry: './app.js',
+			output: {
+				filename: 'bundle.js'
+			}
+			}
+			위 파일을 웹팩으로 빌드하게 되면 아래와 같은 에러가 발생합니다.
+
+			CSS 로딩 에러
+			ERROR in ./common.css 1:2
+			Module parse failed: Unexpected token(1:2)
+			You may need an appropriate loader to hanlde ..................
+
+			위 에러 메시지의 의미는 app.js 파일에서 임포트한 common.css 파일을 해석하기 위해 적절한 로더를 추가해달라는 것입니다.
+			```
+			- CSS Loader 적용하기
+				 - 이 때 해당 폴더에 아래의 NPM 명령어로 CSS 로더를 설치하고 웹팩 설정 파일 설정을 바꿔주면 에러를 해결할 수 있습니다.
+				 ```
+				 npm i css-loader -D
+
+				 // webpack.config.js
+				module.exports = {
+					entry: './app.js',
+					output: {
+						filename: 'bundle.js'
+					},
+					module: {
+						rules: [
+						{
+							test: /\.css$/,
+							use: ['css-loader']
+						}
+						]
+					}
+				}
+				 ```
+				-  위의 module 쪽 코드를 보면 rules 배열에 객체 한 쌍을 추가했습니다. 그리고 그 객체에는 2개의 속성이 들어가 있는데 각각 아래와 같은 역할을 합니다.
+
+					- test : 로더를 적용할 파일 유형 (일반적으로 정규 표현식 사용)
+					- use : 해당 파일에 적용할 로더의 이름
+				정리하자면 위 코드는 해당 프로젝트의 모든 CSS 파일에 대해서 CSS 로더를 적용하겠다는 의미입니다.
+
+				적용 후 빌드하면 정상적으로 실행되는 것을 알 수 있습니다.
+			- 자주 사용되는 로더 종류
+				- Babel Loader
+				- Sass Loader
+				- File Loader
+				- Vue Loader
+				- TS Loader
+			- 로더를 여러 개 사용하는 경우에는 아래와 같이 rules 배열에 로더 옵션을 추가해주면 됩니다.	
+			```
+			module.exports = {
+				module: {
+					rules: [
+					{ test: /\.css$/, use: 'css-loader' },
+					{ test: /\.ts$/, use: 'ts-loader' },
+					// ...
+					]
+				}
+			}
+			```
+			- 로더 적용 순서
+				- 특정 파일에 대해 여러 개의 로더를 사용하는 경우 로더가 적용되는 순서에 주의해야 합니다. 로더는 기본적으로 오른쪽에서 왼쪽 순으로 적용됩니다.
+			```
+				{
+					test: /\.scss$/,
+					use: ['style-loader', 'css-loader', 'sass-loader']
+				}
+				그리고, 위와 같이 배열로 입력하는 대신 아래와 같이 옵션을 포함한 형태로도 입력할 수 있습니다.
+
+				module: {
+					rules: [
+						{
+						test: /\.css$/,
+						use: [
+							{ loader: 'style-loader' },
+							{
+							loader: 'css-loader',
+							options: { modules: true }
+							},
+							{ loader: 'sass-loader' }
+						]
+						}
+					]
+				}
+			```
+		- Plugin : 	플러그인(plugin)은 웹팩의 기본적인 동작에 추가적인 기능을 제공하는 속성입니다. 로더랑 비교하면 로더는 파일을 해석하고 변환하는 과정에 관여하는 반면, 플러그인은 해당 결과물의 형태를 바꾸는 역할을 한다고 보면 됩니다.
+		```
+		플러그인은 아래와 같이 선언합니다.
+
+		// webpack.config.js
+		module.exports = {
+			plugins: []
+			}
+		플러그인의 배열에는 생성자 함수로 생성한 객체 인스턴스만 추가될 수 있습니다. 예를 들어보겠습니다.
+
+		// webpack.config.js
+		var webpack = require('webpack');
+		var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+		module.exports = {
+			plugins: [
+				new HtmlWebpackPlugin(),
+				new webpack.ProgressPlugin()
+			]
+		}
+		```	
+		- 자주 사용하는 플러그인
+			[HtmlWebpackPlugin](https://webpack.kr/plugins/html-webpack-plugin/)
+			[ProgressPlugin](https://webpack.kr/plugins/progress-plugin/#root)
+			[split-chunks-plugin](https://webpack.kr/plugins/split-chunks-plugin/)
+			[clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
+			[image-webpack-loader](https://github.com/tcoopman/image-webpack-loader)
+			[webpack-bundle-analyzer-plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+	
+		
 
 
 ## 참조사이트
