@@ -69,7 +69,7 @@
 
 [Module Bundler]: https://joshua1988.github.io/webpack-guide/assets/img/webpack-bundling.e79747a1.png "모듈 번들링 모형도"
 
-- 웹팩실습.
+- 웹팩실습 1.
 	- [따라하기](https://joshua1988.github.io/webpack-guide/getting-started.html)
 	- LearnWebpack > getting-started 폴더생성
 	- getting-started 에서 통합터미널 오픈
@@ -157,6 +157,7 @@
 				}
 			};
 			// 웹팩의 각 모듈 내용을 기준으로 생생된 해시 값을 붙이는 옵션
+			// 파일이 수정 되었을때 사용자가 cache 를 지우거나 새로고침을 하지 않게 hash값을 붙인다.
 			module.exports = {
 				output: {
 					filename: '[chunkhash].bundle.js'
@@ -300,7 +301,9 @@
 			[clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
 			[image-webpack-loader](https://github.com/tcoopman/image-webpack-loader)
 			[webpack-bundle-analyzer-plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer)
-	
+
+- 웹팩실습 2.
+	- [튜토리얼 문서](https://joshua1988.github.io/webpack-guide/tutorials/code-splitting.html#code-splitting)
 		
 
 

@@ -1,1 +1,1 @@
-import './base.css'; // 파일을 그냥 들고 오겠다.
+import './base.css';
