@@ -101,7 +101,8 @@
 	- [웹팩 Mode](https://webpack.kr/configuration/mode/)
 	- mode, entry, output, module, loader, plugin
 		- mode : webpack에 내장된 최적화 기능을 사용할 수 있다.
-			- default : production
+			- production : defult 모드 배포시 이것으로 적용해야 한다.
+			- development : 개발시 사용
 			- none : 기본 최적화 옵션에서 제외
 		- entry : 웹팩에서 웹 자원을 변환하기 위해 필요한 최초 진입점이자 자바스크립트 파일 경로
 		```
@@ -165,6 +166,7 @@
 			};
 		```	
 		- Loader : 웹팩이 웹 애플리케이션을 해석할 때 자바스크립트 파일이 아닌 웹 자원(HTML, CSS, Images, 폰트 등)들을 변환할 수 있도록 도와주는 속성.
+			- index.js 에 import './base.css' 라는것을 사용했을때, 이 로드가 index.js 에 base.css 를 넣어주는 역학을 한다.
 			- 엔트리나 아웃풋 속성과는 다르게 module라는 이름을 사용한다.
 			```
 			// webpack.config.js
