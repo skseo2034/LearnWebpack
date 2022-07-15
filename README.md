@@ -306,6 +306,7 @@
 
 - 웹팩실습 2.
 	- [튜토리얼 문서](https://joshua1988.github.io/webpack-guide/tutorials/code-splitting.html#code-splitting)
+	- css-loader 은 js 파일안에 css 파일이 들어갈수 있게 한다. 그리고  style-loader 은 그 css 를 style 로 적용한다. 따라서 순서가 css -> style-laoder 이어야 한다.
 		
 
 
