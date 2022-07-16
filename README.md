@@ -99,6 +99,8 @@
 - 웹팩의 주요 속성
 	- [웹팩의 4가지 주요 속성](https://joshua1988.github.io/webpack-guide/concepts/overview.html)
 	- [웹팩 Mode](https://webpack.kr/configuration/mode/)
+	- [주요 속성 리뷰 문서](https://joshua1988.github.io/webpack-guide/concepts/wrapup.html)
+	- [웹팩 로더](https://webpack.kr/loaders/)
 	- mode, entry, output, module, loader, plugin
 		- mode : webpack에 내장된 최적화 기능을 사용할 수 있다.
 			- production : defult 모드 배포시 이것으로 적용해야 한다.
@@ -308,6 +310,12 @@
 	- [튜토리얼 문서](https://joshua1988.github.io/webpack-guide/tutorials/code-splitting.html#code-splitting)
 	- css-loader 은 js 파일안에 css 파일이 들어갈수 있게 한다. 그리고  style-loader 은 그 css 를 style 로 적용한다. 따라서 순서가 css -> style-laoder 이어야 한다.
 		
+- 웹팩 데브 서버
+	- [웹팩 데브 서버 문서](https://joshua1988.github.io/webpack-guide/devtools/webpack-dev-server.html)
+ 	- 필요한 이유
+  		- npm run build 를 한 후 css 에 컬러가 바뀌었다 라고 가정하면. 이 바뀐 부분은 다시 build 하기 전에는 반영 되지 않는다. 웹팩 데브 서버는 웹 애플리케이션을 개발하는 과정에서 유용하게 쓰이는 도구입니다. 웹팩의 빌드 대상 파일이 변경 되었을 때 매번 웹팩 명령어를 실행하지 않아도 코드만 변경하고 저장하면 웹팩으로 빌드한 후 브라우저를 새로고침 해줍니다. 매번 명령어를 치는 시간과 브라우저를 새로 고침하는 시간 뿐만 아니라 웹팩 빌드 시간 또한 줄여주기 때문에 웹팩 기반의 웹 애플리케이션 개발에 필수로 사용됩니다.
+	- [웹팩 데브 서버 튜토리얼](https://joshua1988.github.io/webpack-guide/tutorials/webpack-dev-server.html)
+
 
 
 ## 참조사이트
